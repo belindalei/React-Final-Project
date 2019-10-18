@@ -17,9 +17,10 @@ const TopContainer = (props) => {
   }
 
   return(
-    <div>
+    <div className="top-belt">
+      {/* <h1>Top Container</h1> */}
       {renderTops()}
-    </div>
+  </div>
   )
 
 

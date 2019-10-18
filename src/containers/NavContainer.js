@@ -5,7 +5,8 @@ import SearchBarBottom from '../components/SearchBarBottom'
 const NavContainer = (props) => {
 
   return(
-    <div>
+    <div className="nav-container">
+      <h1>Side Nav</h1>
       <SearchBarTop sortTops={props.sortTops} />
       <SearchBarBottom sortBottoms={props.sortBottoms} />
     </div>
