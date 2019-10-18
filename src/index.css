@@ -1,18 +1,65 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.app {
+  /* display: grid;
+  border: 1px solid blue;
+  grid-template-columns: repeat(6, 1fr);
+  grid-auto-rows: auto;
+  align-items: center;
+  grid-template-areas: 
+      "n n m m m m "
+      "n n m m m m "
+      "n n m m m m "
+      "n n m m m m " */
+      
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+.wrapper {
+  display: grid;
+  grid-template-columns: 1fr 4fr;
 }
+
+.nav-container {
+  border: 1px solid black;
+}
+
+.main-container {
+  display: grid; 
+  background-color: grey;
+  grid-template-columns: repeat(5, 1fr, 2fr, 2fr, 2fr, 1fr);
+  grid-auto-rows: minmax(200px, auto);
+  align-items: center;
+  grid-template-areas: 
+      ". . h . ."
+      ". t t t ."
+      ". b b b ."
+      ". . s . .";
+}
+
+.head {
+  margin: auto;
+  grid-area: h;
+}
+.top-belt {
+  margin: auto;
+  grid-area: t;
+  display: flex;
+}
+
+.bottom-belt {
+  margin: auto;
+  grid-area: b;
+  display: flex;
+}
+
+.save {
+  justify-content: center;
+  margin: auto;
+  grid-area: s;
+}
+
+
+
 
 img{
-  height: 50%;
-  width: 50%;
+  height: 100%;
+  width: 100%;
 }

@@ -31,9 +31,14 @@ class MainContainer extends React.Component {
 
   render(){
     return(
-      <div>
-      <TopContainer tops={this.state.tops} />
-      </div>
+      <Fragment>
+        <div className="main-container">
+          <HeadContainer />
+          <TopContainer tops={this.state.tops} />
+          <BottomContainer />
+          <SaveButton />
+        </div>
+      </Fragment>
     )
   }
 }
