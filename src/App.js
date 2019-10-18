@@ -6,10 +6,11 @@ import NavContainer from './containers/NavContainer'
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
+      <div className="wrapper">
+        <NavContainer />
         <MainContainer />
-      </header>
-    </div>
+      </div>
+  </div>
   );
 }
 

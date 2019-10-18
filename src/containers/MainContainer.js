@@ -31,14 +31,14 @@ class MainContainer extends React.Component {
 
   render(){
     return(
-      <Fragment>
+      
         <div className="main-container">
           <HeadContainer />
           <TopContainer tops={this.state.tops} />
           <BottomContainer />
           <SaveButton />
         </div>
-      </Fragment>
+    
     )
   }
 }
