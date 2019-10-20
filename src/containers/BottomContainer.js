@@ -3,14 +3,26 @@ import BottomCard from '../components/BottomCard'
 
 const BottomContainer = (props) => {
 
+  const renderBottoms = () => {
+    return props.bottoms.map(bottom => {
+      return <BottomCard
+          key={bottom.id}
+          id={bottom.id}
+          bottom={bottom}
+          color={bottom.color}
+          type={bottom.type}
+          name={bottom.name}
+          img={bottom.img_url} 
+        />
+    })
+  }
+
   return (
     <div className="bottom-belt">
-      <h1>this will be a bunch of pants</h1>
-
+      {renderBottoms()}
     </div>
-    
   )
 
 }
 
-export default BottomContainer
+export default BottomContainer;
