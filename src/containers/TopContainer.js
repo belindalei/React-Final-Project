@@ -3,6 +3,8 @@ import TopCard from '../components/TopCard'
 
 const TopContainer = (props) => {
 
+  //write method to only show one top at a time and buttons to move through them
+
   const renderTops = () => {
     return props.tops.map(top => {
       return <TopCard 

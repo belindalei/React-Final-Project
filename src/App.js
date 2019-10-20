@@ -66,10 +66,10 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <header className="App-header">
+        <div className="wrapper">
           <NavContainer sortTops={this.sortTops} sortBottoms={this.sortBottoms} />
           <MainContainer tops={this.state.displayTops} bottoms={this.state.displayBottoms} />
-        </header>
+        </div>
       </div>
     );
   }
