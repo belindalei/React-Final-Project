@@ -5,8 +5,6 @@ import NavContainer from './containers/NavContainer'
 
 class App extends React.Component {
 
-  
-
   state = {
     tops: [],
     bottoms: [],

@@ -2,7 +2,7 @@ import React from 'react'
 
 const TopCard = (props) => {
   
-  let { img_url, name, color } = props.top
+  let { img_url } = props.top
   return(
     <div className="top">
     {/* <h3>{props.name}</h3> */}

@@ -1,5 +1,5 @@
 import React from 'react'
-import FaceCard from '../components/FaceCard'
+// import FaceCard from '../components/FaceCard'
 
 const HeadContainer = (props) => {
 

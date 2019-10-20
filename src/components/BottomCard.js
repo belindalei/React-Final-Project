@@ -1,7 +1,7 @@
 import React from 'react'
 
 const BottomCard = (props) => {
-  let { img_url, name, color } = props.bottom
+  let { img_url } = props.bottom
 
   return (
     <div className="container">

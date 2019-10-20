@@ -3,7 +3,7 @@ import { Icon } from 'semantic-ui-react';
 
 const ScrollButtonLeft = (props) => {
   return (
-    <Icon name='angle double left' size='massive' />
+    <Icon name='angle double left' size='massive' onClick={() => props.handleClick()}/>
   )
 
 }
