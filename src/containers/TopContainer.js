@@ -23,15 +23,6 @@ class TopContainer extends React.Component {
     if (counterCopy < 0)  {counterCopy = this.props.tops.length - 1 }
     this.setState({counter: counterCopy})
   }
-
-  //I will never undestand why this didn't work, but likely has something to do with async 
-  // renderOneTop = () => {
-  //   let counter = this.state.counter;
-  //   let topsCopy = [...this.props.tops]
-  //   let oneTop = topsCopy[counter]
-  //   return oneTop
-  //   // return <TopCard key={oneTop.id} top={oneTop} />
-  // }
  
   displayOneTop = () => {
     let counter = this.state.counter;

@@ -1,31 +1,28 @@
-.app {
-  /* display: grid;
-  border: 1px solid blue;
-  grid-template-columns: repeat(6, 1fr);
-  grid-auto-rows: auto;
-  align-items: center;
-  grid-template-areas: 
-      "n n m m m m "
-      "n n m m m m "
-      "n n m m m m "
-      "n n m m m m " */
-      
-}
+/* .app {
+  height: 100vh;
+  width: 100vw;   
+} */
 
 .wrapper {
   display: grid;
   grid-template-columns: 1fr 4fr;
+  /* height: 100%;
+  width: 100%; */
+  height: 100vh;
+  width: 100vw; 
 }
 
 .nav-container {
   background-color: lightgray;
+  padding: 10px;
 }
 
 .main-container {
   display: grid; 
   background-color: grey;
   grid-template-columns: repeat(5, 1fr, 2fr, 2fr, 2fr, 1fr);
-  grid-auto-rows: minmax(200px, auto);
+  grid-template-rows: 30vh, 30vh, 30vh, 10vh;
+  /* grid-auto-rows: minmax(100px, auto); */
   align-items: center;
   grid-template-areas: 
       ". . h . ."
@@ -35,37 +32,43 @@
 }
 
 .head {
+  justify-content: center;
+  align-content: start;
   margin: auto;
   grid-area: h;
-  /* set minmax min 200px */
 }
 .top-belt {
+  justify-content: center;
+  align-content: center;
   margin: auto;
   grid-area: t;
   display: flex;
-  /* set minmax min 200px */
 }
 
 .bottom-belt {
+  justify-content: center;
+  align-content: center;
   margin: auto;
   grid-area: b;
   display: flex;
-  /* set minmax min 200px */
 }
 
 .save {
   justify-content: center;
+  align-content: start;
   margin: auto;
   grid-area: s;
+  /* height: 100px; */
 }
 
 img{
-  height: 200px;
-  width: 150px;
+  height: 30vh;
+  width: auto;
 }
 
 .face {
-  height: 200px;
+  padding-top: 10px;
+  height: 190px;
   width: auto;
 }
 
