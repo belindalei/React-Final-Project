@@ -10,7 +10,7 @@ const TopContainer = (props) => {
       id={top.id} 
       top={top}
       color={top.color}
-      type={top.type}
+      category={top.category}
       name={top.name}
       img={top.img_url}  />
     })

@@ -5,8 +5,7 @@ const BottomContainer = (props) => {
 
   const renderBottoms = () => {
     return props.bottoms.map(bottom => {
-      return 
-        <BottomCard
+      return <BottomCard
           key={bottom.id}
           id={bottom.id}
           bottom={bottom}
