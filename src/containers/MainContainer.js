@@ -12,6 +12,7 @@ class MainContainer extends React.Component {
       <div className="main-container">
         <HeadContainer />
         <TopContainer tops={this.props.tops} />
+
         <BottomContainer bottoms={this.props.bottoms} />
         <SaveButton />
       </div>

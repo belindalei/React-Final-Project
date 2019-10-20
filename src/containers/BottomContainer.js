@@ -1,27 +1,30 @@
 import React from 'react'
 import BottomCard from '../components/BottomCard'
+import ScrollButtonRight from '../components/ScrollButtonRight'
+import ScrollButtonLeft from '../components/ScrollButtonLeft'
 
-const BottomContainer = (props) => {
+class BottomContainer extends React.Component {
 
-  const renderBottoms = () => {
-    return props.bottoms.map(bottom => {
+  renderBottoms = () => {
+    
+    return this.props.bottoms.map(bottom => {
       return <BottomCard
           key={bottom.id}
-          id={bottom.id}
           bottom={bottom}
-          color={bottom.color}
-          type={bottom.type}
-          name={bottom.name}
-          img={bottom.img_url} 
         />
     })
   }
 
-  return (
-    <div className="bottom-belt">
-      {renderBottoms()}
-    </div>
-  )
+  render() {
+    return (
+      <div className="bottom-belt">
+        <ScrollButtonLeft />
+        {this.renderBottoms()}
+        <ScrollButtonRight />
+      </div>
+    )
+
+  }
 
 }
 

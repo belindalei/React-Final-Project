@@ -37,17 +37,20 @@
 .head {
   margin: auto;
   grid-area: h;
+  /* set minmax min 200px */
 }
 .top-belt {
   margin: auto;
   grid-area: t;
   display: flex;
+  /* set minmax min 200px */
 }
 
 .bottom-belt {
   margin: auto;
   grid-area: b;
   display: flex;
+  /* set minmax min 200px */
 }
 
 .save {
@@ -56,10 +59,13 @@
   grid-area: s;
 }
 
-
-
-
 img{
   height: 200px;
   width: 150px;
 }
+
+.face {
+  height: 200px;
+  width: auto;
+}
+
