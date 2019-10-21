@@ -4,6 +4,7 @@ import HeadContainer from './HeadContainer'
 import TopContainer from './TopContainer'
 import BottomContainer from './BottomContainer'
 import SaveButton from '../components/SaveButton'
+import NewOutfitForm from '../components/NewOutfitForm'
 
 class MainContainer extends React.Component {
   //probably going to need to move all the counter and scroll button logic here and save the currently displayed top and bottom as keys in state which can be passed to the save button
@@ -22,6 +23,7 @@ class MainContainer extends React.Component {
         <TopContainer tops={this.props.tops} />
         <BottomContainer bottoms={this.props.bottoms} />
         <SaveButton />
+        <NewOutfitForm />
       </div>
     )
   }
