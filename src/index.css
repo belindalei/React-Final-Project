@@ -19,7 +19,7 @@
 
 .main-container {
   display: grid; 
-  background-color: grey;
+  /* background-color: grey; */
   grid-template-columns: repeat(5, 1fr, 2fr, 2fr, 2fr, 1fr);
   grid-template-rows: 30vh, 30vh, 30vh, 10vh;
   /* grid-auto-rows: minmax(100px, auto); */
