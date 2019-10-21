@@ -14,6 +14,7 @@ class MainContainer extends React.Component {
     displayBottom: this.props.bottoms[0]
   }
 
+  //SaveButton will need to know which top/bottom is on display AND the user_id
   render(){
     return(
       <div className="main-container">
