@@ -1,7 +1,9 @@
 import React from 'react';
+import { Route, Switch } from 'react-router-dom' 
 import './App.css';
 import MainContainer from './containers/MainContainer'
 import NavContainer from './containers/NavContainer'
+import Welcome from './components/Welcome'
 
 class App extends React.Component {
 
@@ -64,9 +66,12 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
+        <Switch>
+          <Route path="/welcome" component={Welcome}/>
+        </Switch>
         <div className="wrapper">
           <NavContainer sortTops={this.sortTops} sortBottoms={this.sortBottoms} />
-          <MainContainer tops={this.state.displayTops} bottoms={this.state.displayBottoms} />
+          <MainContainer tops={this.state.displayTops} bottoms={this.state.displayBottoms} /> 
         </div>
       </div>
     );
