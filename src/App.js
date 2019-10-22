@@ -27,7 +27,6 @@ class App extends React.Component {
         .then(resp => resp.json())
         .then(user => this.setState({ user }))
     }
-    console.log("test")
   }
 
   signup = (userInfo) => {
@@ -51,8 +50,6 @@ class App extends React.Component {
   //welcome route should have the log in/sign up forms
   //figure out /outfits route --should it render an OutfitsContainer similar to Closet Container that renders the NavContainer and OutfitCardContainer (which renders the user's outfits)
   render(){
-    console.log("local storage=", localStorage)
-    console.log("state=", this.state)
     return (
       <div className="App">
         <Switch>

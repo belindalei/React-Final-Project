@@ -1,8 +1,9 @@
 import React from 'react'
 
-class FormContainer extends React.Component {
+class NewOutfitForm extends React.Component {
 
   state = {
+    name: "",
     top: true,
     category: "",
     color: "",
@@ -10,24 +11,37 @@ class FormContainer extends React.Component {
   }
 
   changeHandler = e => {
-    console.log(e.target.name)
-    // if (e.target.name === "notVegetarian") {
-    //   this.setState({ vegetarian: false })
-    // } else if (e.target.name === "Vegetarian") {
-    //   this.setState({ vegetarian: true })
-    // } else {
-    //   let value = e.target.value;
-    //   this.setState({
-    //     [e.target.name]: value
-    //   });
-    // }
+    if (e.target.name === "top") {
+      this.setState({ top: true })
+    } else if (e.target.name === "bottom") {
+      this.setState({ top: false})
+    } else {
+      let value = e.target.value;
+      this.setState({
+        [e.target.name]: value
+      });
+    }
   };
+
+  submitHandler = e => {
+    e.preventDefault()
+    console.log(this.props.outfitSubmitHandler)
+    // this.props.outfitSubmitHandler(this.state)
+  }
 
   render(){
     return (
-      <form onSubmit={this.props.submitHandler}>
+      <form onSubmit={this.submitHandler}>
         Create a new top or bottom:
         <br />
+        <label>
+          Name:
+            <input
+            name="name"
+            type="text"
+            value={this.state.name}
+            onChange={this.changeHandler} />
+        </label>
         <label>
           Top:
             <input
@@ -47,7 +61,7 @@ class FormContainer extends React.Component {
         <br />
         <label>
           Category:
-            <select value={this.state.category} onChange={this.changeHandler}>
+            <select name="category" value={this.state.category} onChange={this.changeHandler}>
             <option value="long sleeve">Long Sleeve</option>
             <option value="short sleeve">Short Sleeve</option>
             <option value="jeans">Jeans</option>
@@ -58,7 +72,7 @@ class FormContainer extends React.Component {
         <label>
           <br />
           Pick the color:
-            <select value={null} onChange={this.changeHandler}>
+            <select name="color" value={this.state.color} onChange={this.changeHandler}>
             <option value="Black">Black</option>
             <option value="Blue">Blue</option>
             <option value="Green">Green</option>
@@ -76,7 +90,7 @@ class FormContainer extends React.Component {
             <input
             name="img_url"
             type="text"
-            value={null}
+            value={this.state.img_url}
             onChange={this.changeHandler} />
         </label>
         <button
@@ -88,4 +102,4 @@ class FormContainer extends React.Component {
   }
 }
 
-export default FormContainer;
+export default NewOutfitForm;

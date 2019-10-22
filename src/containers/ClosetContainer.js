@@ -10,6 +10,7 @@ class ClosetContainer extends React.Component {
     bottoms: [],
     displayBottoms: [],
     displayTops: []
+
   }
 
   componentDidMount(){
@@ -61,12 +62,51 @@ class ClosetContainer extends React.Component {
     }
   }
 
+  outfitSubmitHandler = (newOutfit) => {
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        accepts: "application/json"
+      },
+      body: JSON.stringify({
+        name: newOutfit.name,
+        img_url: newOutfit.img_url,
+        category: newOutfit.category,
+        color: newOutfit.color
+      })
+    }
+
+    if(newOutfit.top){
+      fetch('http://localhost:3000/api/v1/tops', options)
+        .then(resp => resp.json())
+        .then(data => this.createNewTop(data))
+    } else if(!newOutfit.top){
+      fetch('http://localhost:3000/api/v1/bottoms', options)
+        .then(resp => resp.json())
+        .then(data => this.createNewBottom(data))
+    }
+  }
+
+  createNewTop = (newTop) => {
+    this.setState({
+      tops: [...this.state.tops, newTop]
+    })
+  }
+
+  createNewBottom = (newBottom) => {
+    this.setState({
+      tops: [...this.state.bottoms, newBottom]
+    })
+  }
+
+
   render(){
     return (
       <div className="App">
         <div className="wrapper">
           <NavContainer sortTops={this.sortTops} sortBottoms={this.sortBottoms} />
-          <MainContainer tops={this.state.displayTops} bottoms={this.state.displayBottoms} /> 
+          <MainContainer tops={this.state.displayTops} bottoms={this.state.displayBottoms} outfitSubmitHandler={this.outfitSubmitHandler} /> 
         </div>
       </div>
     );
