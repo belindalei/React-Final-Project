@@ -1,6 +1,6 @@
 import React from "react"
 
-class SignUp extends React.Component {
+class LogIn extends React.Component {
   state = {
       username: "",
       password: ""
@@ -23,7 +23,7 @@ class SignUp extends React.Component {
   render() {
       return (
           <form onSubmit={this.submitHandler}>
-              <label>Sign Up</label>
+              <label>Log In</label>
               <input type="text" name="username" value={this.state.username} placeholder="enter username" onChange={this.changeHandler} />
               <input type="text" name="password" value={this.state.password} placeholder="enter password" onChange={this.changeHandler} />
               <input type="submit" value="submit" />
@@ -33,4 +33,4 @@ class SignUp extends React.Component {
   }
 }
 
-export default SignUp
+export default LogIn
