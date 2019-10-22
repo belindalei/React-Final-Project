@@ -1,9 +1,7 @@
-import React from 'react';
-import { Route, Switch, withRouter } from 'react-router-dom' 
+import React from "react";
+import { Route, Switch, withRouter, BrowserRouter } from 'react-router-dom'
 import './App.css';
 import ClosetContainer from './containers/ClosetContainer'
-// import MainContainer from './containers/MainContainer'
-// import NavContainer from './containers/NavContainer'
 import Welcome from './components/Welcome'
 import SignUp from './components/SignUp'
 import LogIn from './components/LogIn'
@@ -81,14 +79,18 @@ class App extends React.Component {
   render(){
     return (
       <div className="App">
-        <Switch>
-          <Route path="/welcome" component={Welcome}/>
-        </Switch>
+          <Switch>
+            <Route path="/welcome">
+              <Welcome signup={this.signup} login={this.login}/>
+            </Route>
+            <Route path="/outfits" >
+              <ClosetContainer user={this.state.user} />
+            </Route>
+          </Switch>
         <div>
-          <SignUp submitHandler={this.signup}/>
-          <LogIn submitHandler={this.login}/>
-          <LogOut logout={this.logout}/>
-          <ClosetContainer user={this.state.user} />
+          {/* <SignUp submitHandler={this.signup}/> */}
+          {/* <LogIn submitHandler={this.login}/> */}
+          {/*<LogOut logout={this.logout}/> */}
         </div>
       </div>
     );

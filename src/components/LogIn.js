@@ -27,7 +27,6 @@ class LogIn extends React.Component {
               <input type="text" name="username" value={this.state.username} placeholder="enter username" onChange={this.changeHandler} />
               <input type="text" name="password" value={this.state.password} placeholder="enter password" onChange={this.changeHandler} />
               <input type="submit" value="submit" />
-
           </form>
       )
   }
