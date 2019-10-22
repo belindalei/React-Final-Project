@@ -19,8 +19,8 @@ class ClosetContainer extends React.Component {
   }
 
   fetchTops = () => {
-    // fetch('http://localhost:3000/api/v1/tops')
-    fetch('http://localhost:3000/tops')
+    fetch('http://localhost:3000/api/v1/tops')
+    // fetch('http://localhost:3000/tops')
       .then(resp => resp.json())
       .then(data => this.setState({ 
         tops: data,
@@ -29,8 +29,8 @@ class ClosetContainer extends React.Component {
   }
 
   fetchBottoms = () => {
-    // fetch("http://localhost:3000/api/v1/bottoms")
-    fetch('http://localhost:3000/bottoms')
+    fetch("http://localhost:3000/api/v1/bottoms")
+    // fetch('http://localhost:3000/bottoms')
       .then(resp => resp.json())
       .then(data => this.setState({ 
         bottoms: data,
