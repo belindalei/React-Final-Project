@@ -19,7 +19,7 @@ const SaveButton = (props) => {
     return (
     
       <div className="save">
-        <Button icon labelPosition='left' onClick={handleClick}>
+        <Button className="ui pink button" icon labelPosition='left' onClick={handleClick}>
           <Icon name='save' />
           Save Outfit
         </Button>
