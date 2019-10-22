@@ -88,13 +88,13 @@ class ClosetContainer extends React.Component {
   
 
     if(newOutfit.top){
-      fetch('http://localhost:3000/tops', options)
-      // fetch('http://localhost:3000/api/v1/tops', options)
+      // fetch('http://localhost:3000/tops', options)
+      fetch('http://localhost:3000/api/v1/tops', options)
         .then(resp => resp.json())
         .then(data => this.createNewTop(data))
     } else if(!newOutfit.top){
-      fetch('http://localhost:3000/bottoms', options)
-      // fetch('http://localhost:3000/api/v1/bottoms', options)
+      // fetch('http://localhost:3000/bottoms', options)
+      fetch('http://localhost:3000/api/v1/bottoms', options)
         .then(resp => resp.json())
         .then(data => this.createNewBottom(data))
     }
