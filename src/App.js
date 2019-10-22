@@ -28,12 +28,14 @@ class App extends React.Component {
         }
       })
         .then(resp => resp.json())
-        .then(user => this.setState({ user }))
+        // .then(user => console.log("auto login response:", user.user))
+        .then(resp => this.setState({ 
+          user: resp.user}))
     }
   }
 
   signup = (userInfo) => {
-    console.log("submitting")
+    // console.log("submitting")
     fetch("http://localhost:3000/api/v1/users", {
       method: "POST",
       headers: {
@@ -79,6 +81,7 @@ class App extends React.Component {
   //welcome route should have the log in/sign up forms (need a conditional to check for a user/token and if not then send to welcome route)
   //figure out /outfits route --should it render an OutfitsContainer similar to Closet Container that renders the NavContainer and OutfitCardContainer (which renders the user's outfits)
   render(){
+    console.log("app state:", this.state)
     return (
       <div className="App">
         <Switch>
