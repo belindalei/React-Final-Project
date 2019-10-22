@@ -4,7 +4,11 @@ import SearchBarBottom from '../components/SearchBarBottom'
 import OutfitsButton from '../components/OutfitsButton';
 
 const NavContainer = (props) => {
-
+  
+  const openForm = () => {
+    document.getElementById("myForm").style.display = "block";
+  }
+  
   if (props.user) {
     return(
       <div className="nav-container">
@@ -12,12 +16,14 @@ const NavContainer = (props) => {
         <SearchBarTop sortTops={props.sortTops} />
         <SearchBarBottom sortBottoms={props.sortBottoms} />
         <br/>
-        <OutfitsButton user={props.user}/>
+        <OutfitsButton user={props.user} />
+        <br/>
+        <button className="ui pink button" onClick={openForm}>Create New Outfit</button>
       </div>
     )
-    } else {
-      return <div>Loading</div>
-    }
+  } else {
+    return <div>Loading</div>
+  }
 
 }
 
