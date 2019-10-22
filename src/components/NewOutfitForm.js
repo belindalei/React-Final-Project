@@ -24,6 +24,7 @@ class NewOutfitForm extends React.Component {
   };
 
   submitHandler = e => {
+    //console.log e target and only submit if submit form and not close form
     e.preventDefault()
     this.props.outfitSubmitHandler(this.state)
     this.setState({
@@ -35,13 +36,15 @@ class NewOutfitForm extends React.Component {
     })
   }
 
+  //closing the form sends another submission to the backend. WHY????????? ANSWER: because the close form button was in the <form></form>, the onSubmit listener was taking any click on a form button and then posting
+  //for now I moved the close form buttom out of the <form></form>, and also removed type="submit"; one of those might fix it
   closeForm = () => {
     document.getElementById("myForm").style.display = "none";
   }
 
   render(){
     return (
-      <div className="form-popup" id="myForm">
+      <div className="form-popup form-container" id="myForm">
         <form className='form-container' onSubmit={this.submitHandler}>
           <h1>Create a new top or bottom:</h1>
           <br />
@@ -109,8 +112,8 @@ class NewOutfitForm extends React.Component {
               onChange={this.changeHandler} />
           </label>
           <button type="submit" className="ui pink button">Submit</button>
-          <button type="submit" className="ui red button" onClick={this.closeForm}>Close Form</button>
         </form>
+          <button className="ui red button" onClick={this.closeForm}>Close Form</button>
       </div>
     )
   }
