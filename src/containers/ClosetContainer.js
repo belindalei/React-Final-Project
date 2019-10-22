@@ -109,8 +109,17 @@ class ClosetContainer extends React.Component {
     return (
       <div className="App">
         <div className="wrapper">
-          <NavContainer sortTops={this.sortTops} sortBottoms={this.sortBottoms} />
-          <MainContainer tops={this.state.displayTops} bottoms={this.state.displayBottoms} outfitSubmitHandler={this.outfitSubmitHandler} /> 
+          <NavContainer 
+            user={this.props.user} 
+            sortTops={this.sortTops} 
+            sortBottoms={this.sortBottoms} 
+          />
+          <MainContainer 
+            user={this.props.user} 
+            tops={this.state.displayTops} 
+            bottoms={this.state.displayBottoms} 
+            outfitSubmitHandler={this.outfitSubmitHandler} 
+          /> 
         </div>
       </div>
     );
