@@ -9,14 +9,22 @@ class ClosetContainer extends React.Component {
     tops: [],
     bottoms: [],
     displayBottoms: [],
-    displayTops: []
-
+    displayTops: [],
+    outfits: []
   }
 
   componentDidMount(){
     this.fetchTops()
     this.fetchBottoms()
   }
+
+  //componentDidUpdate to setState outfits to outfits sent with user GET response 
+  //make Outfit Container to render outfits with scroll buttons to scroll through them (also needs button to return to main closet)
+  //figure out routes to set the correct user paths 
+    //Welcome Route: if user exists, just render main closet, otherwise render welcome with links to sign up or sign in
+    // "/" root should go to closet
+    // "/outfits" should show outfits
+    // new outfit form will be pop up!
 
   fetchTops = () => {
     fetch('http://localhost:3000/api/v1/tops')
@@ -104,6 +112,23 @@ class ClosetContainer extends React.Component {
     })
   }
 
+  saveOutfit = (outfitBody) => {
+    //post outfit to backend and update outfits array
+    const options = {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        accepts: "application/json"
+      },
+      body: JSON.stringify(outfitBody)
+    }
+
+    fetch("http://localhost:3000/api/v1/outfits", options)
+    .then(resp => resp.json())
+    .then((data)=>console.log(data))
+    //add outfit to outfits array 
+  }
+
 
   render(){
     return (
@@ -119,6 +144,7 @@ class ClosetContainer extends React.Component {
             tops={this.state.displayTops} 
             bottoms={this.state.displayBottoms} 
             outfitSubmitHandler={this.outfitSubmitHandler} 
+            saveOutfit={this.saveOutfit}
           /> 
         </div>
       </div>

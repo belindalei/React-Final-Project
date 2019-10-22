@@ -26,9 +26,6 @@ class MainContainer extends React.Component {
   }
 
 
-  //write method to only show one top at a time and buttons to move through them
-
-  //fix bottom container too!!!
 
   scrollRightTop = () => { 
     let counterCopy = this.state.topCounter
@@ -60,7 +57,7 @@ class MainContainer extends React.Component {
     })
   }
 
-  scrollLeftBottom= () => {
+  scrollLeftBottom = () => {
     let counterCopy = this.state.bottomCounter
     counterCopy -=1
     if (counterCopy < 0)  {counterCopy = this.props.tops.length - 1 }
@@ -69,19 +66,20 @@ class MainContainer extends React.Component {
       displayBottom: this.props.bottoms[counterCopy]
     })
   }
+
+  
  
 
   //SaveButton will need to know which top/bottom is on display AND the user_id
-  //pass this.state.displayTop to TopContainer
-  //pass this.state.displayBottom to BottomContainer
+
   render(){
-    console.log("main container state", this.state)
+    // console.log("main container state", this.state)
     return(
       <div className="main-container">
         <HeadContainer />
         <TopContainer top={this.state.displayTop} scrollRight={this.scrollRightTop} scrollLeft={this.scrollLeftTop}/>
         <BottomContainer bottom={this.state.displayBottom} scrollRight={this.scrollRightBottom} scrollLeft={this.scrollLeftBottom}/>
-        <SaveButton user={this.props.user} top={this.state.displayTop} bottom={this.state.displayBottom} />
+        <SaveButton user={this.props.user} top={this.state.displayTop} bottom={this.state.displayBottom} saveOutfit={this.props.saveOutfit}/>
         <NewOutfitForm outfitSubmitHandler={this.props.outfitSubmitHandler}/>
       </div>
     )

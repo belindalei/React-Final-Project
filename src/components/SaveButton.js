@@ -1,16 +1,35 @@
 import React from 'react'
 import { Button, Icon } from 'semantic-ui-react'
 
-const SaveButton = () => {
+const SaveButton = (props) => {
 
-  return (
-    <div className="save">
-      <Button icon labelPosition='left'>
-        <Icon name='save' />
-        Save Outfit
-      </Button>
-    </div>
-  )
+ 
+
+  const handleClick = () => {
+    console.log("save button props", props)
+    let outfitBody = {
+      user_id: props.user.user.id, 
+      top_id: props.top.id,
+      bottom_id: props.bottom.id
+    }
+    props.saveOutfit(outfitBody)
+  }
+
+  if (props.user) {
+    return (
+    
+      <div className="save">
+        <Button icon labelPosition='left' onClick={handleClick}>
+          <Icon name='save' />
+          Save Outfit
+        </Button>
+      </div>
+    )
+  } else {
+    return (
+      <p>Loading</p>
+    )
+  }
 
 }
 

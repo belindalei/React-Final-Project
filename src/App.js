@@ -71,11 +71,12 @@ class App extends React.Component {
   logout = () => {
     localStorage.removeItem("token")
     this.setState({user: {}})
+    //should also redirect to welcome page
   }
   
 
   
-  //welcome route should have the log in/sign up forms
+  //welcome route should have the log in/sign up forms (need a conditional to check for a user/token and if not then send to welcome route)
   //figure out /outfits route --should it render an OutfitsContainer similar to Closet Container that renders the NavContainer and OutfitCardContainer (which renders the user's outfits)
   render(){
     return (
