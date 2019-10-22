@@ -23,7 +23,7 @@ class MainContainer extends React.Component {
         <TopContainer tops={this.props.tops} />
         <BottomContainer bottoms={this.props.bottoms} />
         <SaveButton />
-        <NewOutfitForm handleSubmit={this.props.outfitSubmitHandler}/>
+        <NewOutfitForm outfitSubmitHandler={this.props.outfitSubmitHandler}/>
       </div>
     )
   }

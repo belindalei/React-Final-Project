@@ -5,8 +5,8 @@ class NewOutfitForm extends React.Component {
   state = {
     name: "",
     top: true,
-    category: "",
-    color: "",
+    category: "Long Sleeve",
+    color: "Black",
     img_url: "" 
   }
 
@@ -25,8 +25,7 @@ class NewOutfitForm extends React.Component {
 
   submitHandler = e => {
     e.preventDefault()
-    console.log(this.props.outfitSubmitHandler)
-    // this.props.outfitSubmitHandler(this.state)
+    this.props.outfitSubmitHandler(this.state)
   }
 
   render(){

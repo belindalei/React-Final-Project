@@ -34,43 +34,50 @@
       "img_url": "https://n.nordstrommedia.com/id/sr3/1b1bacb9-b1d7-4342-948e-e3c0950c4570.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196&dpr=2",
       "type": "long sleeve",
       "color": "black"
+    },
+    {
+      "name": "Fuzzy Sweater",
+      "img_url": "https://m.media-amazon.com/images/I/7173g7TcjYL._SR500,500_.jpg",
+      "category": "Long Sleeve",
+      "color": "White",
+      "id": 6
     }
   ],
-    "bottoms": [
-      {
-        "id": 1,
-        "name": "Black jeans",
-        "img_url": "https://n.nordstrommedia.com/id/sr3/74091cd6-e0f9-4085-aa98-0b0332c10c24.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=1660&h=2546&dpr=2",
-        "type": "jeans",
-        "color": "black"
-      },
-      {
-        "id": 2,
-        "name": "Blue jeans",
-        "img_url": "https://n.nordstrommedia.com/id/sr3/29df63d8-969e-40a1-800f-0020267ccc33.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196&dpr=2",
-        "type": "jeans",
-        "color": "blue"
-      },
-      {
-        "id": 3,
-        "name": "Blue skirt",
-        "img_url": "https://n.nordstrommedia.com/id/sr3/5b2b66b8-eb4f-4984-8de8-c2bba7e887c2.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196&dpr=2",
-        "type": "skirt",
-        "color": "black"
-      },
-      {
-        "id": 4,
-        "name": "Blue leather skirt",
-        "img_url": "https://n.nordstrommedia.com/id/sr3/7f05082c-40fd-4c0f-acd1-d420bd545877.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196&dpr=2",
-        "type": "skirt",
-        "color": "black"
-      },
-      {
-        "id": 5,
-        "name": "Blue pants",
-        "img_url": "https://n.nordstrommedia.com/id/sr3/c7e1b6c1-1faf-40e8-aa81-3a2a90607727.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196&dpr=2",
-        "type": "pants",
-        "color": "black"
-      }
-    ]
-  }
+  "bottoms": [
+    {
+      "id": 1,
+      "name": "Black jeans",
+      "img_url": "https://n.nordstrommedia.com/id/sr3/74091cd6-e0f9-4085-aa98-0b0332c10c24.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=1660&h=2546&dpr=2",
+      "type": "jeans",
+      "color": "black"
+    },
+    {
+      "id": 2,
+      "name": "Blue jeans",
+      "img_url": "https://n.nordstrommedia.com/id/sr3/29df63d8-969e-40a1-800f-0020267ccc33.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196&dpr=2",
+      "type": "jeans",
+      "color": "blue"
+    },
+    {
+      "id": 3,
+      "name": "Blue skirt",
+      "img_url": "https://n.nordstrommedia.com/id/sr3/5b2b66b8-eb4f-4984-8de8-c2bba7e887c2.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196&dpr=2",
+      "type": "skirt",
+      "color": "black"
+    },
+    {
+      "id": 4,
+      "name": "Blue leather skirt",
+      "img_url": "https://n.nordstrommedia.com/id/sr3/7f05082c-40fd-4c0f-acd1-d420bd545877.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196&dpr=2",
+      "type": "skirt",
+      "color": "black"
+    },
+    {
+      "id": 5,
+      "name": "Blue pants",
+      "img_url": "https://n.nordstrommedia.com/id/sr3/c7e1b6c1-1faf-40e8-aa81-3a2a90607727.jpeg?crop=pad&pad_color=FFF&format=jpeg&w=780&h=1196&dpr=2",
+      "type": "pants",
+      "color": "black"
+    }
+  ]
+}

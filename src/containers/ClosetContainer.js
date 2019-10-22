@@ -19,8 +19,8 @@ class ClosetContainer extends React.Component {
   }
 
   fetchTops = () => {
-    fetch('http://localhost:3000/api/v1/tops')
-    // fetch('http://localhost:3000/tops')
+    // fetch('http://localhost:3000/api/v1/tops')
+    fetch('http://localhost:3000/tops')
       .then(resp => resp.json())
       .then(data => this.setState({ 
         tops: data,
@@ -29,8 +29,8 @@ class ClosetContainer extends React.Component {
   }
 
   fetchBottoms = () => {
-    fetch("http://localhost:3000/api/v1/bottoms")
-    // fetch('http://localhost:3000/bottoms')
+    // fetch("http://localhost:3000/api/v1/bottoms")
+    fetch('http://localhost:3000/bottoms')
       .then(resp => resp.json())
       .then(data => this.setState({ 
         bottoms: data,
@@ -63,6 +63,7 @@ class ClosetContainer extends React.Component {
   }
 
   outfitSubmitHandler = (newOutfit) => {
+
     const options = {
       method: "POST",
       headers: {
@@ -76,13 +77,16 @@ class ClosetContainer extends React.Component {
         color: newOutfit.color
       })
     }
+  
 
     if(newOutfit.top){
-      fetch('http://localhost:3000/api/v1/tops', options)
+      fetch('http://localhost:3000/tops', options)
+      // fetch('http://localhost:3000/api/v1/tops', options)
         .then(resp => resp.json())
         .then(data => this.createNewTop(data))
     } else if(!newOutfit.top){
-      fetch('http://localhost:3000/api/v1/bottoms', options)
+      fetch('http://localhost:3000/bottoms', options)
+      // fetch('http://localhost:3000/api/v1/bottoms', options)
         .then(resp => resp.json())
         .then(data => this.createNewBottom(data))
     }
@@ -90,13 +94,13 @@ class ClosetContainer extends React.Component {
 
   createNewTop = (newTop) => {
     this.setState({
-      tops: [...this.state.tops, newTop]
+      displayTops: [...this.state.tops, newTop]
     })
   }
 
   createNewBottom = (newBottom) => {
     this.setState({
-      tops: [...this.state.bottoms, newBottom]
+      displayBottoms: [...this.state.bottoms, newBottom]
     })
   }
 
