@@ -2,6 +2,7 @@ import React from 'react';
 import SearchBarTop from '../components/SearchBarTop'
 import SearchBarBottom from '../components/SearchBarBottom'
 import OutfitsButton from '../components/OutfitsButton';
+import LogOut from '../components/LogOut'
 
 const NavContainer = (props) => {
   
@@ -12,13 +13,16 @@ const NavContainer = (props) => {
   if (props.user) {
     return(
       <div className="nav-container">
-        <h1>Side Nav</h1>
+        
         <SearchBarTop sortTops={props.sortTops} />
         <SearchBarBottom sortBottoms={props.sortBottoms} />
         <br/>
         <OutfitsButton user={props.user} />
         <br/>
-        <button className="ui pink button" onClick={openForm}>Create New Outfit</button>
+        <button className="ui pink button" onClick={openForm}>Add Article of Clothing to Closet</button>
+        <br/>
+        <br/>
+        <LogOut logout={props.logout}/> 
       </div>
     )
   } else {

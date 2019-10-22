@@ -134,18 +134,36 @@ class ClosetContainer extends React.Component {
     return (
       <div className="App">
         <div className="wrapper">
-          <NavContainer 
-            user={this.props.user} 
-            sortTops={this.sortTops} 
-            sortBottoms={this.sortBottoms} 
-          />
-          <MainContainer 
-            user={this.props.user} 
-            tops={this.state.displayTops} 
-            bottoms={this.state.displayBottoms} 
-            outfitSubmitHandler={this.outfitSubmitHandler} 
-            saveOutfit={this.saveOutfit}
-          /> 
+
+          {this.props.user
+          ?
+          <Switch>
+            <Route path="/outfits" render={() => <NavContainer />} />
+            <Route exact path="/" render={() => (
+              <>
+              <NavContainer 
+                user={this.props.user} 
+                sortTops={this.sortTops} 
+                sortBottoms={this.sortBottoms} 
+                logout={this.props.logout}
+              />
+              <MainContainer 
+                user={this.props.user} 
+                tops={this.state.displayTops} 
+                bottoms={this.state.displayBottoms} 
+                outfitSubmitHandler={this.outfitSubmitHandler} 
+                saveOutfit={this.saveOutfit}
+            /> 
+            </>
+            )}/>
+            {/* this should render a "Sorry that page doesn't exist if the user types anything else"
+            <Route path="/" component={Error} /> */}
+           
+          </Switch>
+          :
+          <h1>Loading</h1>
+          }
+
         </div>
       </div>
     );

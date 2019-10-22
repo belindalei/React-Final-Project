@@ -8,7 +8,7 @@ const SaveButton = (props) => {
   const handleClick = () => {
     console.log("save button props", props)
     let outfitBody = {
-      user_id: props.user.user.id, 
+      user_id: props.user.id, 
       top_id: props.top.id,
       bottom_id: props.bottom.id
     }

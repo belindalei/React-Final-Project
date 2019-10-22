@@ -26,6 +26,13 @@ class NewOutfitForm extends React.Component {
   submitHandler = e => {
     e.preventDefault()
     this.props.outfitSubmitHandler(this.state)
+    this.setState({
+      name: "",
+      top: true,
+      category: "Long Sleeve",
+      color: "Black",
+      img_url: "" 
+    })
   }
 
   closeForm = () => {
