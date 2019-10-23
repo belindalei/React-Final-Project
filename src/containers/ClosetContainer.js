@@ -2,6 +2,8 @@ import React from 'react';
 import { Route, Switch } from 'react-router-dom' 
 import MainContainer from './MainContainer'
 import NavContainer from './NavContainer'
+import OutfitContainer from './OutfitContainer'
+
 
 class ClosetContainer extends React.Component {
 
@@ -138,7 +140,15 @@ class ClosetContainer extends React.Component {
           {this.props.user
           ?
           <Switch>
-            <Route path="/outfits" render={() => <NavContainer />} />
+            {/* need to conditionally render a "return to closet" button in Nav if in /outfits and remove other buttons other than log out */}
+            <Route path="/outfits" render={() => (
+            <>
+            <NavContainer /> 
+            {/* can get outfits from user but need to pass tops and bottoms to be able to find the correct ones from the ids in outfits */}
+            <OutfitContainer user={this.props.user} tops={this.state.tops} bottoms={this.state.bottoms}/> 
+            </>
+            )}/>
+
             <Route exact path="/" render={() => (
               <>
               <NavContainer 
