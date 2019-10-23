@@ -1,6 +1,6 @@
 import React from "react";
 import { Route, Switch, withRouter, Redirect } from 'react-router-dom'
-import './App.css';
+import './stylesheets/App.css';
 import ClosetContainer from './containers/ClosetContainer'
 import Welcome from './components/Welcome'
 // import SignUp from './components/SignUp'

@@ -7,34 +7,35 @@ import {
   Route,
   Link
 } from "react-router-dom";
+import '../stylesheets/welcomePage.css'
 
 
 const Welcome = (props) => {
 
   return(
+    <div className="bgimg">
     <Router>
-    <h1>WELCOME TO CLUELESS STYLING</h1>
-      <div>
-        <ul>
-          <li>
-            <Link to="/login">Login</Link>
-          </li>
-          <li>
-            <Link to="/signup">Signup</Link>
-          </li>
-        </ul>
+    <h1 className="welcome-header">WELCOME TO CLUELESS STYLING</h1>
+          <ul className="middle">
+            <li className="ui red inverted header">
+              <Link to="/login">Login</Link>
+            </li>
+            <li className="ui red inverted header">
+              <Link to="/signup">Signup</Link>
+            </li>
+            </ul>
 
-        <hr />
-        <Switch>
+          <hr />
+          <Switch>
           <Route path="/login" component={LogIn}>
-            <LogIn submitHandler={props.login} />
-          </Route>
-          <Route path="/signup" component={SignUp}>
-            <SignUp submitHandler={props.signup} />
-          </Route>
-        </Switch>
-      </div>
-    </Router>
+              <LogIn submitHandler={props.login} />
+            </Route>
+            <Route path="/signup" component={SignUp}>
+              <SignUp submitHandler={props.signup} />
+            </Route>
+          </Switch>
+      </Router>
+    </div>
   )
 }
 

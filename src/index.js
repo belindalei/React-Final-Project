@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
-import './index.css';
-import './newOutfitForm.css'
+import './stylesheets/index.css';
+import './stylesheets/newOutfitForm.css'
 import { BrowserRouter } from 'react-router-dom'
 import App from './App';
 import 'semantic-ui-css/semantic.min.css'
