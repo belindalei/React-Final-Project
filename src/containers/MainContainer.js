@@ -50,7 +50,7 @@ class MainContainer extends React.Component {
   scrollRightBottom = () => { 
     let counterCopy = this.state.bottomCounter
     counterCopy +=1
-    if (counterCopy >= this.props.tops.length)  {counterCopy = 0 }
+    if (counterCopy >= this.props.bottoms.length)  {counterCopy = 0 }
     this.setState({
       bottomCounter: counterCopy,
       displayBottom: this.props.bottoms[counterCopy]

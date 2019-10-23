@@ -20,9 +20,10 @@ class OutfitContainer extends React.Component {
     // console.log("main container props", this.props)
     return(
       <div className="main-container">
-        <HeadContainer />
+        <h1>Outfit container</h1>
+        {/* <HeadContainer />
         <TopContainer top={this.state.displayTop} />
-        <BottomContainer bottom={this.state.displayBottom} scrollRight={this.scrollRightOutfit} scrollLeft={this.scrollLeftOutfit}/>
+        <BottomContainer bottom={this.state.displayBottom} scrollRight={this.scrollRightOutfit} scrollLeft={this.scrollLeftOutfit}/> */}
   
       </div>
     )

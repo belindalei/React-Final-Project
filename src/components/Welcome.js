@@ -14,6 +14,8 @@ const Welcome = (props) => {
 
   return(
     <div className="bgimg">
+
+      {/* need to fix this bc if you click sing up, you can't click log in. should be able to click both */}
     <Router>
     <h1 className="welcome-header">WELCOME TO CLUELESS STYLING</h1>
           <ul className="middle">
@@ -27,10 +29,10 @@ const Welcome = (props) => {
 
           <hr />
           <Switch>
-          <Route path="/login" component={LogIn}>
+          <Route exact path="/login" component={LogIn}>
               <LogIn submitHandler={props.login} />
             </Route>
-            <Route path="/signup" component={SignUp}>
+            <Route exact path="/signup" component={SignUp}>
               <SignUp submitHandler={props.signup} />
             </Route>
           </Switch>

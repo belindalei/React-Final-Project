@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom' 
+import { Route, Switch, withRouter } from 'react-router-dom' 
 import MainContainer from './MainContainer'
 import NavContainer from './NavContainer'
 import OutfitContainer from './OutfitContainer'
@@ -12,13 +12,29 @@ class ClosetContainer extends React.Component {
     bottoms: [],
     displayBottoms: [],
     displayTops: [],
-    outfits: []
+    outfits: [],
   }
 
   componentDidMount(){
     this.fetchTops()
     this.fetchBottoms()
+    console.log("hi")
   }
+
+  // shouldComponentUpdate(prevProps){
+  //   console.log("updating?", prevProps.location.state, this.props.location.state)
+  //   return prevProps.location.pathname === "/outfits"
+  // }
+
+  componentDidUpdate(prevProps) {
+    console.log(prevProps, this.props)
+    // console.log("updating?", prevProps.location.pathname, this.props.location.state)
+    if (prevProps.location.pathname === "/outfits" && this.props.history.action === "PUSH") {
+      this.setState({refresh: true})
+    }
+  }
+  
+
 
   //componentDidUpdate to setState outfits to outfits sent with user GET response 
   //make Outfit Container to render outfits with scroll buttons to scroll through them (also needs button to return to main closet)
@@ -142,29 +158,37 @@ class ClosetContainer extends React.Component {
           <Switch>
             {/* need to conditionally render a "return to closet" button in Nav if in /outfits and remove other buttons other than log out */}
             <Route path="/outfits" render={() => (
-            <>
-            <NavContainer /> 
-            {/* can get outfits from user but need to pass tops and bottoms to be able to find the correct ones from the ids in outfits */}
-            <OutfitContainer user={this.props.user} tops={this.state.tops} bottoms={this.state.bottoms}/> 
-            </>
+              <>
+                <NavContainer 
+                  user={this.props.user}
+                  logout={this.props.logout} 
+                  outfit
+                /> 
+              {/* can get outfits from user but need to pass tops and bottoms to be able to find the correct ones from the ids in outfits */}
+                <OutfitContainer 
+                  user={this.props.user} 
+                  tops={this.state.tops} 
+                  bottoms={this.state.bottoms}
+                /> 
+              </>
             )}/>
 
             <Route exact path="/" render={() => (
               <>
-              <NavContainer 
-                user={this.props.user} 
-                sortTops={this.sortTops} 
-                sortBottoms={this.sortBottoms} 
-                logout={this.props.logout}
-              />
-              <MainContainer 
-                user={this.props.user} 
-                tops={this.state.displayTops} 
-                bottoms={this.state.displayBottoms} 
-                outfitSubmitHandler={this.outfitSubmitHandler} 
-                saveOutfit={this.saveOutfit}
-            /> 
-            </>
+                <NavContainer 
+                  user={this.props.user} 
+                  sortTops={this.sortTops} 
+                  sortBottoms={this.sortBottoms} 
+                  logout={this.props.logout}
+                />
+                <MainContainer 
+                  user={this.props.user} 
+                  tops={this.state.displayTops} 
+                  bottoms={this.state.displayBottoms} 
+                  outfitSubmitHandler={this.outfitSubmitHandler} 
+                  saveOutfit={this.saveOutfit}
+                /> 
+              </>
             )}/>
             {/* this should render a "Sorry that page doesn't exist if the user types anything else"
             <Route path="/" component={Error} /> */}
@@ -182,4 +206,4 @@ class ClosetContainer extends React.Component {
 
 }
 
-export default ClosetContainer
+export default withRouter(ClosetContainer)
