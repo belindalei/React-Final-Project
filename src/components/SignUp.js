@@ -22,11 +22,13 @@ class SignUp extends React.Component {
 
   render() {
       return (
-          <form onSubmit={this.submitHandler}>
-              <label>Sign Up</label>
+          <form className="ui huge form" onSubmit={this.submitHandler}>
+              <h1>Sign Up</h1>
               <input type="text" name="username" value={this.state.username} placeholder="enter username" onChange={this.changeHandler} />
               <input type="password" name="password" value={this.state.password} placeholder="enter password" onChange={this.changeHandler} />
-              <input type="submit" value="submit" />
+              <br/> 
+              <br/> 
+              <input className="ui inverted button" type="submit" value="submit" />
 
           </form>
       )
