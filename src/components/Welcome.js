@@ -15,12 +15,12 @@ const Welcome = (props) => {
   return(
     <div className="bgimg">
     <Router>
-    <h1>WELCOME TO CLUELESS STYLING</h1>
+    <h1 className="welcome-header">WELCOME TO CLUELESS STYLING</h1>
           <ul className="middle">
-            <li>
+            <li className="ui red inverted header">
               <Link to="/login">Login</Link>
-              </li>
-            <li>
+            </li>
+            <li className="ui red inverted header">
               <Link to="/signup">Signup</Link>
             </li>
             </ul>
