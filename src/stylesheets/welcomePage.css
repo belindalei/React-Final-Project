@@ -1,0 +1,30 @@
+body, html {
+  height: 100%
+}
+
+.bgimg {
+  /* Background image */
+  background-image: url('https://cdn.shopify.com/s/files/1/0393/9257/products/Animal-Print-Hologram--Hot-Pink-TXHFP-HP_76624015-3fe5-4024-b66f-510aa4fbfd0e.jpg?v=1414465585');
+  /* Full-screen */
+  height: 1000px;
+  /* Center the background image */
+  background-position: center;
+  /* Scale and zoom in the image */
+  background-size: cover;
+  /* Add position: relative to enable absolutely positioned elements inside the image (place text) */
+  position: relative;
+  /* Add a white text color to all elements inside the .bgimg container */
+  color: white;
+  /* Add a font */
+  font-family: "Courier New", Courier, monospace;
+  /* Set the font-size to 25 pixels */
+  font-size: 50px;
+}
+
+.middle {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
