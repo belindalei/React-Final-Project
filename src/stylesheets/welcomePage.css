@@ -3,10 +3,11 @@ body, html {
 }
 
 .bgimg {
+  display: block;
   /* Background image */
   background-image: url('https://i.pinimg.com/originals/35/ca/f8/35caf8b8e6f979ac4c18dfa8e99e3165.jpg');
   /* Full-screen */
-  height: 768px;
+  height: 100vh;
   /* width: 100%; */
   /* Center the background image */
   background-position: center;
@@ -35,10 +36,20 @@ body, html {
   font-size: 60px; 
 }
 
-a:link {
+a {
   color: white;
 }
 
 a:hover {
   color: rgb(243, 243, 243);
 }
+
+#signup-login {
+ width: 550px;
+ height: 100px;
+ margin: auto;
+ position: relative;
+}
+
+
+

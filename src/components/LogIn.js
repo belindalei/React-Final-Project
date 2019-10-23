@@ -22,13 +22,38 @@ class LogIn extends React.Component {
 
   render() {
       return (
-          <form className="ui huge form" onSubmit={this.submitHandler}>
-              <h1>Log In</h1>
-              <input type="text" name="username" value={this.state.username} placeholder="enter username" onChange={this.changeHandler} />
-              <input type="password" name="password" value={this.state.password} placeholder="enter password" onChange={this.changeHandler} />
-              <input className="ui inverted button" type="submit" value="submit" />
-          </form>
-      )
+        <form className="ui small form" id="signup-login" onSubmit={this.submitHandler}>
+          <center>
+            <h1>Log In</h1>
+          </center>
+          <label>Username</label>
+          <input
+            type="text"
+            name="username"
+            value={this.state.username}
+            placeholder="enter username"
+            onChange={this.changeHandler}
+          />
+          <br></br>
+          <label>Password</label>
+          <input
+            type="password"
+            name="password"
+            value={this.state.password}
+            placeholder="enter password"
+            onChange={this.changeHandler}
+          />
+          <br />
+          <br />
+          <center>
+            <input
+              className="ui inverted button"
+              type="submit"
+              value="submit"
+            />
+          </center>
+        </form>
+      );
   }
 }
 
