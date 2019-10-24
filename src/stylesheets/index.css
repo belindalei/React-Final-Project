@@ -72,3 +72,7 @@ img{
   height: 190px;
   width: auto;
 }
+
+.was-validated .form-control:valid~.invalid-feedback {
+    display: none;
+}
