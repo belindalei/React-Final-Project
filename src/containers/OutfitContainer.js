@@ -6,41 +6,27 @@ import BottomContainer from './BottomContainer'
 class OutfitContainer extends React.Component {
   state = {
     counter: 0,
-    outfitTops: [],
-    outfitBottoms: [],
     displayTop: {},
     displayBottom: {}
   }
 
 
   
-  // componentDidMount() {
-  //   this.fetchUserTopsAndBottoms()
-  // }
+  componentDidUpdate(prevProps) {
+    console.log("updating")
+    if (this.props !== prevProps) {
+      let displayTopCopy = this.props.user.tops[0]
+      let displayBottomCopy = this.props.user.bottoms[0]
+      this.setState({
+        displayTop: displayTopCopy,
+        displayBottom: displayBottomCopy
+      })
+    }
+  }
 
-  
-
-  // fetchUserTopsAndBottoms = () => {
-  //   if (this.props.user) {
-  //     let id = this.props.user.id
-  //     fetch(`http://localhost:3000/api/v1/users/${id}`)
-  //     // fetch('http://localhost:3000/tops')
-  //       .then(resp => resp.json())
-  //       .then(data => {
-  //         console.log(data.user.outfits)
-  //         //   this.setState({ 
-  //         //   outfitTops: data.tops,
-  //         //   outfitBottoms: data.bottoms,
-  //         //   displayTop: data.tops[0],
-  //         //   displayBottom: data.bottoms[0]
-  //         // })
-  
-  //       })
-
-  //   }
-  // }
-
-
+  shouldComponentUpdate(prevProps) {
+    return this.props.user !== prevProps.user
+  }
 
   //iterate through outfits to get the top_ids and then make an array of tops
 
@@ -60,34 +46,9 @@ class OutfitContainer extends React.Component {
     return bottoms
   }
 
-  shouldComponentUpdate(prevProps) {
-    return this.props.outfits !== prevProps.outfits
-  }
+  
 
 
-  componentDidUpdate(prevProps) {
-    // console.log("Main container props", prevProps, this.props)
-    // if (this.props !== prevProps) {
-      // if (this.props.outfits !== prevProps.outfits) {
-      //   console.log("component did update")
-      let outfitTopsCopy = [...this.state.outfitTops]
-      let outfitBottomsCopy = [...this.state.outfitBottoms]
-      outfitTopsCopy = this.getOutfitTops()
-      outfitBottomsCopy = this.getOutfitBottoms()
-      let displayTopCopy = {...this.state.displayTop}
-      let displayBottomCopy = {...this.state.displayBottom}
-      displayTopCopy = this.getOutfitTops()[0]
-      displayBottomCopy = this.getOutfitBottoms()[0]
-      
-      this.setState({
-        displayTop: displayTopCopy,
-        displayBottom: displayBottomCopy,
-        outfitTops: outfitTopsCopy,
-        outfitBottoms: outfitBottomsCopy
-      })
-    // }
-    // }
-  }
 
 
 
@@ -119,6 +80,7 @@ class OutfitContainer extends React.Component {
 
   render(){
     console.log("outfit container state", this.state)
+    console.log("outfit container props", this.props)
     
     return(
       <div className="main-container">

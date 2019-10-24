@@ -25,7 +25,7 @@ const NavContainer = (props) => {
           </Link>
           <br/>
           <br/>
-          <button className="ui pink button" onClick={openForm}>Add Article of Clothing to Closet</button>
+          {/* <button className="ui pink button" onClick={openForm}>Add Article of Clothing to Closet</button> */}
           <br/>
           <br/>
           <LogOut logout={props.logout}/> 
