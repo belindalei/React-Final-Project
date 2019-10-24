@@ -1,7 +1,13 @@
 import React from "react"
+import { withRouter } from 'react-router-dom' 
 import HeadContainer from './HeadContainer'
 import TopContainer from './TopContainer'
 import BottomContainer from './BottomContainer'
+import OutfitCard from '../components/OutfitCard'
+import ScrollButtonRight from '../components/ScrollButtonRight'
+import ScrollButtonLeft from '../components/ScrollButtonLeft'
+import TopCard from '../components/TopCard'
+import BottomCard from '../components/BottomCard'
 
 class OutfitContainer extends React.Component {
   state = {
@@ -13,8 +19,8 @@ class OutfitContainer extends React.Component {
 
   
   componentDidUpdate(prevProps) {
-    console.log("updating")
     if (this.props !== prevProps) {
+      console.log("updating")
       let displayTopCopy = this.props.user.tops[0]
       let displayBottomCopy = this.props.user.bottoms[0]
       this.setState({
@@ -24,8 +30,8 @@ class OutfitContainer extends React.Component {
     }
   }
 
-  shouldComponentUpdate(prevProps) {
-    return this.props.user !== prevProps.user
+  shouldComponentUpdate() {
+    return this.props.user 
   }
 
   //iterate through outfits to get the top_ids and then make an array of tops
@@ -46,29 +52,26 @@ class OutfitContainer extends React.Component {
     return bottoms
   }
 
-  
-
-
 
 
 
   scrollRight = () => { 
-    let counterCopy = this.state.topCounter
+    let counterCopy = this.state.counter
     counterCopy +=1
-    if (counterCopy >= this.props.tops.length)  {counterCopy = 0 }
+    if (counterCopy >= this.props.user.tops.length)  {counterCopy = 0 }
     this.setState({
-      topCounter: counterCopy,
-      displayTop: this.props.tops[counterCopy]
+      counter: counterCopy,
+      // displayTop: this.props.tops[counterCopy]
     })
   }
 
   scrollLeft = () => {
-    let counterCopy = this.state.topCounter
+    let counterCopy = this.state.counter
     counterCopy -=1
-    if (counterCopy < 0)  {counterCopy = this.props.tops.length - 1 }
+    if (counterCopy < 0)  {counterCopy = this.props.user.tops.length - 1 }
     this.setState({
-      topCounter: counterCopy,
-      displayTop: this.props.tops[counterCopy]
+      counter: counterCopy,
+      // displayTop: this.props.tops[counterCopy]
     })
   }
 
@@ -79,21 +82,34 @@ class OutfitContainer extends React.Component {
 
 
   render(){
-    console.log("outfit container state", this.state)
-    console.log("outfit container props", this.props)
+   
+    if (this.props.user) {
+      let displayTop = this.props.user.tops[this.state.counter]
+      let displayBottom = this.props.user.bottoms[this.state.counter]
+      
+      return(
+        <div className="main-container">
+          {/* <h1>Outfit container</h1> */}
+          <HeadContainer />
+          <div className="top-belt">
+            <TopCard top={displayTop}/>
+          </div>
+          
+          <div className="bottom-belt">
+            <ScrollButtonLeft handleClick={this.scrollLeft}/>
+            <BottomCard bottom={displayBottom} />
+            <ScrollButtonRight handleClick={this.scrollRight}/>
+          </div>
+        
+        </div>
+      )
+    } else {
+      return <h1>Loading</h1>
+    }
     
-    return(
-      <div className="main-container">
-        <h1>Outfit container</h1>
-        { <HeadContainer />
-        /*<TopContainer top={this.state.displayTop} />
-        <BottomContainer bottom={this.state.displayBottom} scrollRight={this.scrollRight} scrollLeft={this.scrollLeft}/> */}
-  
-      </div>
-    )
   }
 
 
 }
 
-export default OutfitContainer
+export default withRouter(OutfitContainer)

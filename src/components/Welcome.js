@@ -19,11 +19,11 @@ const Welcome = (props) => {
     <Router>
     <h1 className="welcome-header">WELCOME TO CLUELESS STYLING</h1>
           <ul className="middle">
-            <li className="ui red inverted header">
-              <Link to="/login">Login</Link>
+            <li className="ui  inverted header">
+              <Link className="white-text" to="/login">Login</Link>
             </li>
-            <li className="ui red inverted header">
-              <Link to="/signup">Signup</Link>
+            <li className="ui inverted header">
+              <Link className="white-text" to="/signup">Signup</Link>
             </li>
             </ul>
 

@@ -35,9 +35,14 @@ body, html {
   text-align: center;
   font-size: 60px; 
 }
+ 
+.white-text {
+  color: white;
+}
 
 a {
   color: white;
+  
 }
 
 a:hover {
