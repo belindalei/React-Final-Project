@@ -15,6 +15,7 @@ class MainContainer extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    // console.log("Main container props", prevProps, this.props)
     if (this.props !== prevProps) {
       let displayTopCopy = this.props.tops[0]
       let displayBottomCopy = this.props.bottoms[0]

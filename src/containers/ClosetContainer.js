@@ -18,20 +18,18 @@ class ClosetContainer extends React.Component {
   componentDidMount(){
     this.fetchTops()
     this.fetchBottoms()
-    console.log("hi")
   }
 
-  // shouldComponentUpdate(prevProps){
-  //   console.log("updating?", prevProps.location.state, this.props.location.state)
-  //   return prevProps.location.pathname === "/outfits"
-  // }
 
   componentDidUpdate(prevProps) {
-    console.log(prevProps, this.props)
-    // console.log("updating?", prevProps.location.pathname, this.props.location.state)
-    if (prevProps.location.pathname === "/outfits" && this.props.history.action === "PUSH") {
-      this.setState({refresh: true})
+    if (this.props.user !== prevProps.user) {
+      let outfitsCopy = [...this.state.outfits] 
+      outfitsCopy = this.props.user.outfits;
+      this.setState({outfits: outfitsCopy})
     }
+    else if (prevProps.location.pathname === "/outfits" && this.props.history.action !== "POP") {
+      this.setState({refresh: true})
+    } 
   }
   
 
@@ -143,12 +141,17 @@ class ClosetContainer extends React.Component {
 
     fetch("http://localhost:3000/api/v1/outfits", options)
     .then(resp => resp.json())
-    .then((data)=>console.log(data))
-    //add outfit to outfits array 
+    .then((data)=>{
+      // console.log(data)
+      //add outfit to outfits array 
+      let outfitsCopy = [...this.state.outfits, data]
+      this.setState({outfits: outfitsCopy})
+    })
   }
 
 
   render(){
+    // console.log("Closet Container user:", this.props.user, "Closet container state:", this.state)
     return (
       <div className="App">
         <div className="wrapper">
@@ -169,6 +172,7 @@ class ClosetContainer extends React.Component {
                   user={this.props.user} 
                   tops={this.state.tops} 
                   bottoms={this.state.bottoms}
+                  outfits={this.state.outfits}
                 /> 
               </>
             )}/>
