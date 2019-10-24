@@ -3,7 +3,7 @@ import { Route, Switch, withRouter } from 'react-router-dom'
 import MainContainer from './MainContainer'
 import NavContainer from './NavContainer'
 import OutfitContainer from './OutfitContainer'
-
+import FavoriteContainer from './FavoriteContainer'
 
 class ClosetContainer extends React.Component {
 
@@ -195,13 +195,54 @@ class ClosetContainer extends React.Component {
               </>
             )}/>
             {/* this should render a "Sorry that page doesn't exist if the user types anything else"
+          {this.props.user ? (
+            <Switch>
+              <Route
+                exact
+                path="/outfits"
+                render={() => (
+                  <>
+                    <NavContainer
+                      user={this.props.user}
+                      sortTops={this.sortTops}
+                      sortBottoms={this.sortBottoms}
+                      logout={this.props.logout}
+                    />
+                    <FavoriteContainer
+                      outfits={this.state.outfits}
+                      allTops={this.state.tops}
+                      allBottoms={this.state.bottoms}
+                    />
+                  </>
+                )}
+              />
+              <Route
+                exact
+                path="/"
+                render={() => (
+                  <>
+                    <NavContainer
+                      user={this.props.user}
+                      sortTops={this.sortTops}
+                      sortBottoms={this.sortBottoms}
+                      logout={this.props.logout}
+                    />
+                    <MainContainer
+                      user={this.props.user}
+                      tops={this.state.displayTops}
+                      bottoms={this.state.displayBottoms}
+                      outfitSubmitHandler={this.outfitSubmitHandler}
+                      saveOutfit={this.saveOutfit}
+                    />
+                  </>
+                )}
+              />
+              {/* this should render a "Sorry that page doesn't exist if the user types anything else"
             <Route path="/" component={Error} /> */}
-           
-          </Switch>
-          :
-          <h1>Loading</h1>
-          }
-
+            </Switch>
+          : (
+            <h1>Loading</h1>
+          )}
         </div>
       </div>
     );
