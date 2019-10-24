@@ -236,7 +236,7 @@ class ClosetContainer extends React.Component {
               {/* this should render a "Sorry that page doesn't exist if the user types anything else"
             <Route path="/" component={Error} /> */}
             </Switch>
-          ) : (
+          : (
             <h1>Loading</h1>
           )}
         </div>
